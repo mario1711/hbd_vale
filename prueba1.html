@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linterna</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #1f1f1f;
+            overflow: hidden;
+            /* Evita que la página haga scroll */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo del div que simula la linterna */
+        #linterna {
+            position: fixed;
+            width: 100Px;
+            /* Tamaño de la linterna */
+            height: 100px;
+            /* Tamaño de la linterna */
+            background-color: rgba(255, 255, 255, 0.5);
+            /* Blanco semi-transparente */
+            border-radius: 50%;
+            /* Forma circular */
+            pointer-events: none;
+            /* Permite que el mouse pase a través del div */
+            transition: width 0.3s, height 0.3s;
+            /* Transición suave para el cambio de tamaño */
+        }
+
+        /* Estilo del número */
+        .numero {
+            position: fixed;
+            color: rgb(255, 3, 3);
+            font-size: 30px;
+            pointer-events: none;
+            visibility: hidden;
+            transform: translate(-50%, -50%);
+            /* Centra el número en relación con su propio tamaño */
+        }
+
+        /* Estilo de la notificación */
+        #notification {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Div que simula la "linterna" -->
+    <div id="linterna"></div>
+
+    <!-- Número oculto en una posición aleatoria -->
+    <div id="numero" class="numero">7</div>
+
+    <!-- Notificación -->
+    <div id="notification"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const linterna = document.getElementById('linterna');
+            const numero = document.getElementById('numero');
+            const notification = document.getElementById('notification');
+            let numeroEncontrado = false;
+
+            // Función para establecer la posición aleatoria del número
+            function setRandomPosition() {
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+
+                const randomX = Math.floor(Math.random() * (windowWidth - 50)); // Ancho de la ventana menos el ancho del número
+                const randomY = Math.floor(Math.random() * (windowHeight - 50)); // Alto de la ventana menos el alto del número
+
+                numero.style.left = randomX + 'px';
+                numero.style.top = randomY + 'px';
+            }
+
+            // Evento de movimiento del mouse
+            document.addEventListener('mousemove', function (e) {
+                const x = e.clientX;
+                const y = e.clientY;
+
+                // Mueve la "linterna" con el mouse
+                linterna.style.left = x + 'px';
+                linterna.style.top = y + 'px';
+
+                // Verifica si el mouse está cerca del número y si el número aún no se ha encontrado
+                if (isNear(x, y, numero) && !numeroEncontrado) {
+                    numero.style.visibility = 'visible';
+                    numeroEncontrado = true;
+
+                }
+                else if (numeroEncontrado) {
+                    showNotification("¡Felicidades! Has encontrado el número oculto. \n Dame clic para ir a la siguiente prueba");
+                    notification.addEventListener('click', function () {
+                    window.location.href = 'prueba2.html'; 
+                });
+                }
+                else {
+                    numero.style.visibility = 'hidden';
+                }
+            });
+
+            // Establecemos la posición aleatoria del número al cargar la página
+            setRandomPosition();
+
+            // Alerta al encontrar el número oculto
+            
+
+            // Función para verificar si el mouse está cerca del número
+            function isNear(mouseX, mouseY, element) {
+                const rect = element.getBoundingClientRect();
+                const elementX = rect.left + rect.width / 2;
+                const elementY = rect.top + rect.height / 2;
+                const distance = Math.sqrt((mouseX - elementX) ** 2 + (mouseY - elementY) ** 2);
+                return distance < 50; // Cambia este valor según la distancia deseada
+            }
+
+            // Función para mostrar notificación
+            function showNotification(message) {
+                notification.textContent = message;
+                notification.style.display = 'block';
+                setTimeout(function () {
+                    notification.style.display = 'none';
+                }, 7000); // Oculta la notificación después de 3 segundos
+            }
+
+            // Alerta de bienvenida
+            showNotification("¡Bienvenido! Tu misión es encontrar el número oculto en la página. ¡Buena suerte!");
+        });
+    </script>
+</body>
+
+</html>

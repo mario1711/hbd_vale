@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Desactiva el desplazamiento de la página */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 22vw; /* 25% del ancho de la pantalla */
+            height: 40vh; /* 25% de la altura de la pantalla */
+            padding: 10px;
+            border: 2px dashed #ffffff;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Hace que la imagen abarque todo el contenedor */
+        }
+
+        .image-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+            display: none; /* Comienza oculto */
+        }
+
+        .correct-order-text {
+            display: block; /* Muestra el texto cuando se cumple el orden correcto */
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Coloca las imágenes en el orden en que estas fueron tomadas...</p>
+
+    <div class="container">
+        <div id="div1" class="image-container" ondrop="drop(event, 'div1')" ondragover="allowDrop(event)">
+            <img id="drag1" class="original-img" src="img/4.jpg" draggable="true" ondragstart="drag(event)">
+            <span class="image-text">Recuerdas esta foto? Fue en mi cumpleaños. Aun conservo a Betillo el peluche que me diste , es muy especial para mi</span>
+        </div>
+        <div id="div2" class="image-container" ondrop="drop(event, 'div2')" ondragover="allowDrop(event)">
+            <img id="drag2" class="original-img" src="img/3.jpg" draggable="true" ondragstart="drag(event)">
+            <span class="image-text">Esta foto es mi favorita , me quede contigo esperando contigo a tu psicologa pero nunca llego por que habia un loquito en la escuela. El dia que casi nos balacean 😣</span>
+        </div>
+        <div id="div3" class="image-container" ondrop="drop(event, 'div3')" ondragover="allowDrop(event)">
+            <img id="drag3" class="original-img" src="img/1.jpg" draggable="true" ondragstart="drag(event)">
+            <span class="image-text">La primera vez que fui a tu casa , ¿Recuerdas que hicimos un tiktok con un filtro que te hizo reir infinitamente? 😐</span>
+        </div>
+        <div id="div4" class="image-container" ondrop="drop(event, 'div4')" ondragover="allowDrop(event)">
+            <img id="drag4" class="original-img" src="img/2.jpg" draggable="true" ondragstart="drag(event)">
+            <span class="image-text">Y pues esta foto fue tomada probablemente en mi dia favorito de toda la historia...No hay mas contexto (por cierto el siguiente numero de la contraseña es 8)</span>
+        </div>
+    </div>
+
+    <div class="btn-siguiente"  style="visibility: hidden; margin-top: 3em;">
+        <a class="shadow__btn" href="prueba3.html">A la siguiente prueba...</a>
+    </div>
+
+
+    <script>
+        
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev, targetId) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            var target = document.getElementById(targetId);
+
+
+            if (target.classList.contains('image-container')) {
+
+                if (target.children.length > 0 && target.children[0].tagName === 'IMG') {
+                    var sourceImg = document.getElementById(data);
+                    var destinationImg = target.querySelector('img');
+
+                    var tempSrc = sourceImg.src;
+                    sourceImg.src = destinationImg.src;
+                    destinationImg.src = tempSrc;
+                    checkOrder();
+                }
+            }
+        }
+
+        function checkOrder() {
+            var images = document.querySelectorAll('.original-img');
+            var correctOrder = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+
+            var currentOrder = Array.from(images).map(img => {
+                var url = new URL(img.src);
+                return url.pathname.split('/').pop(); // Obtiene el nombre del archivo de la URL
+            });
+
+            if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
+                // Muestra el texto de las imágenes en el orden correcto
+                var texts = document.querySelectorAll('.image-text');
+                texts.forEach(text => text.classList.add('correct-order-text'));
+                var btn = document.getElementsByClassName('btn-siguiente');
+                btn[0].style.visibility = 'visible';
+                alert('¡Enhorabuena! Las imágenes están en orden.');
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
