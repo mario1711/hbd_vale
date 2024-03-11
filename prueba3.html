@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla de letras</title>
+    <title>Prueba 3</title>
     <style>
         body {
             background-color: #1f1f1f;
@@ -14,41 +14,61 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            flex-direction: column; /* Para que los elementos se muestren en columna */
+            flex-direction: column;
+            /* Para que los elementos se muestren en columna */
         }
 
         .grid-container {
             margin: 4em;
             display: grid;
-            grid-template-columns: repeat(9, 1fr); /* 9 columnas */
-            grid-template-rows: repeat(3, 1fr); /* 3 filas */
-            gap: 2px; /* Espacio entre las celdas */
-            border: 3px dashed #fff; /* Borde del grid */
-            width: 75%; /* Ancho del grid */
-            max-width: 100vw; /* Ancho máximo del grid */
-            margin-bottom: 40px; /* Margen inferior para separar del siguiente elemento */
+            grid-template-columns: repeat(9, 1fr);
+            /* 9 columnas */
+            grid-template-rows: repeat(3, 1fr);
+            /* 3 filas */
+            gap: 2px;
+            /* Espacio entre las celdas */
+            border: 3px dashed #fff;
+            /* Borde del grid */
+            width: 75%;
+            /* Ancho del grid */
+            max-width: 100vw;
+            /* Ancho máximo del grid */
+            margin-bottom: 40px;
+            /* Margen inferior para separar del siguiente elemento */
         }
 
         .grid-item {
-            border: 1px solid #fff; /* Borde de cada celda */
-            padding: 0; /* Espaciado interno de la celda */
-            text-align: center; /* Alineación del contenido */
-            overflow: hidden; /* Para que las imágenes no sobrepasen los bordes */
-            position: relative; /* Para que las imágenes se ajusten correctamente */
+            border: 1px solid #fff;
+            /* Borde de cada celda */
+            padding: 0;
+            /* Espaciado interno de la celda */
+            text-align: center;
+            /* Alineación del contenido */
+            overflow: hidden;
+            /* Para que las imágenes no sobrepasen los bordes */
+            position: relative;
+            font-size: 10em;
         }
 
         .grid-container-10 {
             display: grid;
-            grid-template-columns: repeat(10, 1fr); /* 10 columnas */
-            gap: 2px; /* Espacio entre las celdas */
-            border: 2px dashed #fff; /* Borde del grid */
-            width: 75%; /* Ancho del grid */
-            max-width: 100vw; /* Ancho máximo del grid */
-            margin-bottom: 5em; /* Margen inferior para separar del siguiente elemento */
+            grid-template-columns: repeat(10, 1fr);
+            /* 10 columnas */
+            gap: 2px;
+            /* Espacio entre las celdas */
+            border: 2px dashed #fff;
+            /* Borde del grid */
+            width: 75%;
+            /* Ancho del grid */
+            max-width: 100vw;
+            /* Ancho máximo del grid */
+            margin-bottom: 5em;
+            /* Margen inferior para separar del siguiente elemento */
         }
 
         .grid-item img {
-            width: 70%; /* Ajusta el tamaño de la imagen */
+            width: 50%;
+            /* Ajusta el tamaño de la imagen */
             height: auto;
             display: block;
             margin: auto;
@@ -60,14 +80,40 @@
         img:hover {
             transform: scale(1.1);
         }
+
+        /* Estilos para el aside */
+        aside {
+            padding: 1em;
+            height: 6em;
+            width: 40%;
+            font-size: 4.45em;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        strong{
+            color: red;
+        }
     </style>
 </head>
 
 <body>
 
+    <aside>
+        <div>
+            Obtiendo el valor de cada imagen del recuadro de abajo basandote en la tabla de letras
+            <br>
+            Remplaza la cadena conseguida en el URL de esta misma pagina de la siguiente forma: <br>
+            https://mario1711.github.io/hbd_vale/<strong>prueba3</strong>.html <br>
+            Lo que se encuentra en rojo debes reemplazarlo por la cadena obtenida
+
+        </div>
+    </aside>
+
     <div class="grid-container">
         <div class="grid-item">
-            <img src="img-puzzle/1.webp" >
+            <img src="img-puzzle/1.webp">
             A
         </div>
         <div class="grid-item">
@@ -75,7 +121,7 @@
             B
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/3.webp" >
+            <img src="img-puzzle/3.webp">
             C
         </div>
         <div class="grid-item">
@@ -83,95 +129,94 @@
             D
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/5.webp" alt="A">
+            <img src="img-puzzle/5.webp">
             E
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/6.webp" alt="A">
+            <img src="img-puzzle/6.webp">
             F
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/7.webp" alt="A">
+            <img src="img-puzzle/7.webp">
             G
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/8.webp" alt="A">
+            <img src="img-puzzle/8.webp">
             H
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/9.webp" alt="A">
+            <img src="img-puzzle/9.webp">
             I
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/10.webp" alt="A">
+            <img src="img-puzzle/10.webp">
             J
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/11.webp" alt="A">
+            <img src="img-puzzle/11.webp">
             K
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/12.webp" alt="A">
+            <img src="img-puzzle/12.webp">
             L
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/13.webp" alt="A">
+            <img src="img-puzzle/13.webp">
             M
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/14.webp" alt="A">
+            <img src="img-puzzle/14.webp">
             N
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/15.webp" alt="A">
+            <img src="img-puzzle/15.webp">
             O
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/16.webp" alt="A">
+            <img src="img-puzzle/16.webp">
             P
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/17.webp" alt="A">
+            <img src="img-puzzle/17.webp">
             Q
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/18.webp" alt="A">
+            <img src="img-puzzle/18.webp">
             R
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/19.webp" alt="A">
+            <img src="img-puzzle/19.webp">
             S
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/20.webp" alt="A">
+            <img src="img-puzzle/20.webp">
             T
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/21.webp" alt="A">
+            <img src="img-puzzle/21.webp">
             U
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/22.webp" alt="A">
+            <img src="img-puzzle/22.webp">
             V
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/23.webp" alt="A">
+            <img src="img-puzzle/23.webp">
             W
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/24.webp" alt="A">
+            <img src="img-puzzle/24.webp">
             X
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/25.webp" alt="A">
+            <img src="img-puzzle/25.webp">
             Y
         </div>
         <div class="grid-item">
-            <img src="img-puzzle/26.webp" alt="A">
+            <img src="img-puzzle/26.webp">
             Z
         </div>
-        
-        
+
     </div>
 
     <div class="grid-container-10">
@@ -205,10 +250,10 @@
         <div class="grid-item">
             <img src="img-puzzle/12.webp">
         </div>
-        
+
     </div>
 
-    <!-- Agrega más contenedores grid-container si es necesario -->
+
 
 </body>
 
