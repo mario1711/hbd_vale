@@ -14,25 +14,41 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column; /* Para que los elementos se muestren en columna */
         }
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 100vw;
-            margin-bottom: 40px;
-            border: 2px solid #fff;
+        .grid-container {
+            margin: 4em;
+            display: grid;
+            grid-template-columns: repeat(9, 1fr); /* 9 columnas */
+            grid-template-rows: repeat(3, 1fr); /* 3 filas */
+            gap: 2px; /* Espacio entre las celdas */
+            border: 3px dashed #fff; /* Borde del grid */
+            width: 75%; /* Ancho del grid */
+            max-width: 100vw; /* Ancho máximo del grid */
+            margin-bottom: 40px; /* Margen inferior para separar del siguiente elemento */
         }
 
-        td {
-            border: 1px solid #fff;
-            padding: 0;
-            text-align: center;
-            width: 70px;
+        .grid-item {
+            border: 1px solid #fff; /* Borde de cada celda */
+            padding: 0; /* Espaciado interno de la celda */
+            text-align: center; /* Alineación del contenido */
+            overflow: hidden; /* Para que las imágenes no sobrepasen los bordes */
+            position: relative; /* Para que las imágenes se ajusten correctamente */
         }
 
-        img {
-            width: 100%;
+        .grid-container-10 {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr); /* 10 columnas */
+            gap: 2px; /* Espacio entre las celdas */
+            border: 2px dashed #fff; /* Borde del grid */
+            width: 75%; /* Ancho del grid */
+            max-width: 100vw; /* Ancho máximo del grid */
+            margin-bottom: 5em; /* Margen inferior para separar del siguiente elemento */
+        }
+
+        .grid-item img {
+            width: 70%; /* Ajusta el tamaño de la imagen */
             height: auto;
             display: block;
             margin: auto;
@@ -49,158 +65,150 @@
 
 <body>
 
-    <table>
-        <tr>
-            <td>
-                <img src="img-puzzle/1.webp" alt="A">
-                A
-            </td>
-            <td>
-                <img src="img-puzzle/2.webp" alt="B">
-                B
-            </td>
-            <td>
-                <img src="img-puzzle/3.webp" alt="C">
-                C
-            </td>
-            <td>
-                <img src="img-puzzle/4.webp" alt="D">
-                D
-            </td>
-            <td>
-                <img src="img-puzzle/5.webp" alt="E">
-                E
-            </td>
-            <td>
-                <img src="img-puzzle/6.webp" alt="F">
-                F
-            </td>
-            <td>
-                <img src="img-puzzle/7.webp" alt="G">
-                G
-            </td>
-            <td>
-                <img src="img-puzzle/8.webp" alt="H">
-                H
-            </td>
-            <td>
-                <img src="img-puzzle/9.webp" alt="I">
-                I
-            </td>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="img-puzzle/1.webp" >
+            A
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/2.webp">
+            B
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/3.webp" >
+            C
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/4.webp">
+            D
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/5.webp" alt="A">
+            E
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/6.webp" alt="A">
+            F
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/7.webp" alt="A">
+            G
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/8.webp" alt="A">
+            H
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/9.webp" alt="A">
+            I
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/10.webp" alt="A">
+            J
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/11.webp" alt="A">
+            K
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/12.webp" alt="A">
+            L
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/13.webp" alt="A">
+            M
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/14.webp" alt="A">
+            N
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/15.webp" alt="A">
+            O
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/16.webp" alt="A">
+            P
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/17.webp" alt="A">
+            Q
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/18.webp" alt="A">
+            R
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/19.webp" alt="A">
+            S
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/20.webp" alt="A">
+            T
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/21.webp" alt="A">
+            U
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/22.webp" alt="A">
+            V
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/23.webp" alt="A">
+            W
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/24.webp" alt="A">
+            X
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/25.webp" alt="A">
+            Y
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/26.webp" alt="A">
+            Z
+        </div>
+        
+        
+    </div>
 
-        </tr>
-        <tr>
-            <td>
-                <img src="img-puzzle/10.webp" alt="J">
-                J
-            </td>
-            <td>
-                <img src="img-puzzle/11.webp" alt="K">
-                K
-            </td>
-            <td>
-                <img src="img-puzzle/12.webp" alt="L">
-                L
-            </td>
+    <div class="grid-container-10">
+        <div class="grid-item">
+            <img src="img-puzzle/16.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/18.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/25.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/6.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/26.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/5.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/20.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/2.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/23.webp">
+        </div>
+        <div class="grid-item">
+            <img src="img-puzzle/12.webp">
+        </div>
+        
+    </div>
 
-            <td>
-                <img src="img-puzzle/13.webp" alt="M">
-                M
-            </td>
-            <td>
-                <img src="img-puzzle/14.webp" alt="N">
-                N
-            </td>
-            <td>
-                <img src="img-puzzle/15.webp" alt="O">
-                O
-            </td>
-
-            <td>
-                <img src="img-puzzle/16.webp" alt="P">
-                P
-            </td>
-            <td>
-                <img src="img-puzzle/17.webp" alt="Q">
-                Q
-            </td>
-            <td>
-                <img src="img-puzzle/18.webp" alt="R">
-                R
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="img-puzzle/19.webp" alt="S"> <!---------------->
-                S
-            </td>
-            <td>
-                <img src="img-puzzle/20.webp" alt="T">
-                T
-            </td>
-            <td>
-                <img src="img-puzzle/21.webp" alt="U">
-                U
-            </td>
-
-            <td>
-                <img src="img-puzzle/22.webp" alt="V">
-                V
-            </td>
-            <td>
-                <img src="img-puzzle/23.webp" alt="W">
-                W
-            </td>
-            <td>
-                <img src="img-puzzle/24.webp" alt="X">
-                X
-            </td>
-
-            <td>
-                <img src="img-puzzle/25.webp" alt="Y">
-                Y
-            </td>
-            <td>
-                <img src="img-puzzle/26.webp" alt="Z">
-                Z
-            </td>
-        </tr>
-    </table>
-
-    <table class="space-between-tables">
-        <tr>
-            <td>
-                <img src="img-puzzle/16.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/18.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/25.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/6.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/26.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/5.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/20.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/2.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/23.webp">
-            </td>
-            <td>
-                <img src="img-puzzle/12.webp">
-            </td>
-        </tr>
-    </table>
+    <!-- Agrega más contenedores grid-container si es necesario -->
 
 </body>
 
